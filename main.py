@@ -1,4 +1,6 @@
 from settings import *
+from handlers.commands import command_router
+
 
 async def main_run():
     bot = Bot(token = config['tg']['token'], parse_mode=ParseMode.HTML)

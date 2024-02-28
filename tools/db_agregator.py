@@ -33,6 +33,24 @@ async def aggregate_salaries(dt_from, dt_upto, group_type):
             '$sort': {
                 '_id': 1
             }
+        },
+        {
+            '$project': {
+                '_id': 0,
+                'label': {
+                    '$concat': [
+                        '$_id', 
+                        {
+                            '$cond': {
+                                'if': {'$eq': [group_type, 'month']},
+                                'then': '-01T00:00:00',
+                                'else': ''
+                            }
+                        }
+                    ]
+                },
+                'totalAmount': 1
+            }
         }
     ]
     
@@ -40,7 +58,7 @@ async def aggregate_salaries(dt_from, dt_upto, group_type):
     dataset = []
     labels = []
     async for doc in cursor:
-        labels.append(doc['_id'])
+        labels.append(doc['label'])
         dataset.append(doc['totalAmount'])
     
     return {'dataset': dataset, 'labels': labels}
