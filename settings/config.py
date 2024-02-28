@@ -17,6 +17,7 @@ import asyncio
 
 # Settings 'n logging modules
 import configparser
+import traceback
 import logging
 
 # MongoDB modules(async)

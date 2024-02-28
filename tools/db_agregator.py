@@ -62,4 +62,3 @@ async def aggregate_salaries(dt_from, dt_upto, group_type):
         dataset.append(doc['totalAmount'])
     
     return {'dataset': dataset, 'labels': labels}
-

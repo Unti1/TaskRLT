@@ -9,6 +9,10 @@ readme = "README.md"
 python = "^3.11"
 motor = "^3.3.2"
 aiogram = "^3.4.1"
+pytest = "^8.0.2"
+anyio = "^4.3.0"
+pytest-asyncio = "^0.23.5"
+pytest-tornasync = "^0.6.0.post2"
 
 
 [build-system]
