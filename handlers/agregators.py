@@ -1,11 +1,10 @@
 from settings import *
 
-agre_router = Router()
+router = Router()
 
-agre_router.message()
+@router.message(F.text)
 async def process_json(message: types.Message):
     from tools.db_agregator import aggregate_salaries
-
     try:
         # JSON parse
         data = json.loads(message.text)
