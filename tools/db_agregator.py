@@ -50,17 +50,3 @@ async def aggregate_salaries(dt_from, dt_upto, group_type):
     
     return {'dataset': filled_dataset, 'labels': filled_labels}
 
-# Код запуска
-async def main():
-    tests = [
-        # {"dt_from": "2022-09-01T00:00:00", "dt_upto": "2022-12-31T23:59:00", "group_type": "month"},
-        {"dt_from": "2022-10-01T00:00:00", "dt_upto": "2022-11-30T23:59:00", "group_type": "day"},
-        # {"dt_from": "2022-02-01T00:00:00", "dt_upto": "2022-02-02T00:00:00", "group_type": "hour"}
-    ]
-    
-    for test in tests:
-        result = await aggregate_salaries(**test)
-        print(result)
-
-if __name__ == '__main__':
-    asyncio.run(main())
